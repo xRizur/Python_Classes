@@ -1,0 +1,28 @@
+L = [3, 5, 4]; L = L.sort()
+
+sort sortuje liste i nie zwraca nic wiec przypisanie nie zadziala.
+
+x, y = 1, 2, 3
+
+Mamy dwie zmienne i trzy przypisania wiec mamy blad.
+
+X = 1, 2, 3; X[1] = 4
+
+x jest tuple a elementow tupli nie mozemy zmieniac.
+
+X = [1, 2, 3]; X[3] = 4
+
+probujemy przypisac element o indeksie 3 a w tablicy mamy jedynie od 0 do 2.
+
+X = "abc"; X.append("d")
+
+przez append dodajemy cos do sekwencji, a zeby dodac do lanchucha powinnismy uzyc +
+
+L = list(map(pow, range(8)))
+
+brakuje drugiego argumentu, funkcja pow przyjmuje wykladnik i potege.
+
+
+
+
+
