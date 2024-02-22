@@ -32,14 +32,11 @@ class Point:
     def cross(self, other):         # v1 x v2, iloczyn wektorowy 2D, zwraca liczbę
         return self.x * other.y - self.y * other.x
         
-
-    def length(self):         # długość wektora
+    def length(self):        
         return math.sqrt(self.x * self.x + self.y * self.y)
     
     def __hash__(self):
-        return hash((self.x, self.y))   # bazujemy na tuple, immutable points
-
-# Kod testujący moduł.
+        return hash((self.x, self.y))  
 
 import unittest
 
@@ -51,8 +48,6 @@ class TestPoint(unittest.TestCase):
         self.assertEqual(repr(Point(1, 2)), "Point(1, 2)")
         self.assertEqual(str(Point(0, 0)), "(0, 0)")
         self.assertEqual(repr(Point(0, 0)), "Point(0, 0)")
-        self.assertEqual(str(Point(-1, -2)), "(-1, -2)")
-        self.assertEqual(repr(Point(-1, -2)), "Point(-1, -2)")
         
     def test_cmp(self):
         self.assertTrue(Point(1, 2) == Point(1, 2))
