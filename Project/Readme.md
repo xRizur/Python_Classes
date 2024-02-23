@@ -14,6 +14,26 @@ Biblioteki:
 ## Uruchomienie programu
 Glowny program ktory uruchamia gre to main.py, dlatego nalezy uzyc polecenia python main.py oraz zainstalowac biblioteke pyGame za pomoca:
 pip install pygame
+## Krotki opis klas
+Klasa Cell:
+
+Inicjalizacja: Kazda komorka (Cell) jest zainicjowana z okreslonymi wspolrzednymi (x, y) oraz slownikiem walls, ktory sledzi, ktore ze scian komorki sa obecne. Poczatkowo wszystkie sciany sa ustawione na True, co oznacza, ze kazda komorka jest w pelni zamknieta. Usuwanie scian: Metoda remove_wall pozwala na "usuwanie" sciany miedzy biezaca komorka a sasiednia komorka.
+
+Klasa DisjointSet
+
+Uzywana do zarzadzania zbiorami rozlaczonymi komorek w labiryncie, co jest pomocne przy generowaniu labiryntu algorytmem Kruskala.
+
+Klasa Maze
+
+Inicjalizacja: Tworzy siatke komorek (Cell) o okreslonej szerokosci i wysokosci. Generowanie labiryntu: Algorytm generowania labiryntu zaczyna od utworzenia pelnego zestawu scian, a nastepnie losowo usuwa niektore sciany (zachowujac strukture labiryntu), uzywajac struktury DisjointSet do sledzenia i laczania komorek w sposob, ktory zapobiega tworzeniu cykli. Rysowanie: Metoda draw przechodzi przez wszystkie komorki labiryntu i rysuje ich sciany na ekranie.
+
+Glowna funkcja gry (run_maze_game)
+
+Inicjalizuje Pygame, ustawia ekran i zarzadza glowna petla gry, ktora obejmuje wyswietlanie menu, generowanie labiryntu, obsluge eventow: ruchow gracza i sprawdzanie warunkow zwyciestwa. Gracz moze poruszac sie w czterech kierunkach i jego ruch jest ograniczony przez sciany labiryntu. Gdy gracz dotrze do konca labiryntu, gra przechodzi na kolejny poziom, zwiekszajac trudnosc(wielkosc labiryntu).
+
+Klasa Player
+
+Reprezentuje gracza w labiryncie z metodami do ruchu i rysowania. Metoda move pozwala graczowi poruszac sie w czterech kierunkach,
 
 ## Obsługa programu
 Po wlaczeniu gry, operujemy myszka i mamy do wyboru nowa gre oraz wyjscie.
