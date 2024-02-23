@@ -5,7 +5,6 @@ from menu import show_main_menu, show_pause_menu
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 RED = (255, 0, 0)
-GREEN = (0, 255, 0)
 YELLOW = (255, 255, 0)
 
 def run_maze_game():
@@ -87,7 +86,7 @@ def run_maze_game():
             player.draw(screen, cell_size)
 
             goal_x, goal_y = (maze.width - 1) * cell_size, (maze.height - 1) * cell_size
-            pygame.draw.rect(screen, (0, 255, 0), (goal_x, goal_y, cell_size, cell_size))
+            pygame.draw.rect(screen, WHITE, (goal_x, goal_y, cell_size, cell_size))
 
             time_text = font.render(f'Time: {current_time:.2f}s', True, WHITE)
             level_text = font.render(f'Level: {level}', True, WHITE)
