@@ -1,5 +1,5 @@
 import unittest
-from main import Cell, Wall,Player,DisjointSet  # Zakładając, że wszystkie klasy znajdują się w pliku main.py
+from main import Cell, Wall,Player,DisjointSet
 class TestMaze(unittest.TestCase):
     def setUp(self):
         self.maze = Maze(10, 10,2)
@@ -10,7 +10,6 @@ class TestMaze(unittest.TestCase):
 
     #def test_maze_generation(self):
        # self.maze.generate()
-        # Tutaj można dodać bardziej szczegółowe testy sprawdzające poprawność generacji labiryntu
 
 class TestCell(unittest.TestCase):
     def setUp(self):
@@ -35,8 +34,6 @@ class TestPlayer(unittest.TestCase):
 
     def test_move(self):
         self.player.move(Wall.RIGHT, self.maze)
-        # Sprawdzamy, czy gracz rzeczywiście się poruszył, biorąc pod uwagę stan ścian w labiryncie
-        # To może wymagać bardziej szczegółowej weryfikacji, w zależności od struktury labiryntu
 class TestDisjointSet(unittest.TestCase):
     def setUp(self):
         self.set = DisjointSet(10)

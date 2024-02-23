@@ -1,7 +1,6 @@
 import random
 import pygame
 from enum import Enum
-# Definicje kolorów
 WHITE = (255, 255, 255)
 
 class Wall(Enum):
@@ -51,7 +50,7 @@ class Maze:
 
     def generate(self):
         sets = DisjointSet(self.width * self.height)
-
+        # zapelnienie listy scian
         walls = []
         for x in range(self.width):
             for y in range(self.height):
@@ -59,7 +58,11 @@ class Maze:
                     walls.append(((x, y), (x - 1, y)))
                 if y > 0:
                     walls.append(((x, y), (x, y - 1)))
-
+        # losowe usuwanie scian az do momentu, kiedy wszystkie komorki beda polaczone
+        # Za pomoca algorytmu kruskala
+        # 1. Losowo wybierz sciane
+        # 2. Jesli komorki oddzielone przez sciane naleza do roznych zbiorow, usun sciane i polacz zbiory
+        # 3. Powtarzaj kroki 1 i 2 az wszystkie komorki beda polaczone
         while walls:
             wall = random.choice(walls)
             walls.remove(wall)
@@ -80,15 +83,11 @@ class Maze:
                         self.cells[cell1[0]][cell1[1]].remove_wall(self.cells[cell2[0]][cell2[1]], Wall.LEFT)
                     else:
                         self.cells[cell1[0]][cell1[1]].remove_wall(self.cells[cell2[0]][cell2[1]], Wall.RIGHT)
+            
+            # Usuniecie scian przy koncu, umozliwienie wyjscia z kadej strony
             goal_x, goal_y = self.width - 1, self.height - 1
-            if goal_x > 0:
-                self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x - 1][goal_y], Wall.LEFT)
-            if goal_y > 0:
-                self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x][goal_y - 1], Wall.TOP)
-            if goal_x < self.width - 1:
-                self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x + 1][goal_y], Wall.RIGHT)
-            if goal_y < self.height - 1:
-                self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x][goal_y + 1], Wall.BOTTOM)    
+            self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x - 1][goal_y], Wall.LEFT)
+            self.cells[goal_x][goal_y].remove_wall(self.cells[goal_x][goal_y - 1], Wall.TOP) 
     def draw(self, screen, cell_size):
         for x in range(self.width):
             for y in range(self.height):
