@@ -1,4 +1,4 @@
-### Generowanie labiryntu - Algorytm Kruskala - Maciej Pajak
+# Generowanie labiryntu - Algorytm Kruskala - Maciej Pajak
 ## Krotkie wprowadzenie do projektu
 
 Projekt stworzony w jezyku python, ktory generuje labirynty za pomoca algorytmu Kruskala, ktore mozna przechodzic za pomoca biblioteki PyGame 
